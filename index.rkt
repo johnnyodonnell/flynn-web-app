@@ -17,7 +17,8 @@
       (string-append
         "https://"
         (get-host (request-headers req))
-        (url->string (request-uri req))))))
+        (url->string (request-uri req)))
+      301)))
 
 (thread
   (lambda ()
@@ -35,5 +36,6 @@
                #:port 443
                #:launch-browser? #f
                #:servlet-regexp #rx""
-               #:quit? #f)
+               #:quit? #f
+               #:ssl? #t)
 
